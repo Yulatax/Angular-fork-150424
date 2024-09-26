@@ -1,0 +1,5 @@
+/* ::ng-deep span {} */
+span{
+    font-size: 40px;
+    color: brown;
+}
