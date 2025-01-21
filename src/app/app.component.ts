@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {applicationConfigMock} from './shared/application-config/application-config.mock';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
     readonly aplicationConfigMock = applicationConfigMock;
@@ -14,19 +15,26 @@ export class AppComponent {
 
     constructor() {
         setTimeout(() => {
-            this.switchTemplate = !this.switchTemplate;
+            // this.switchTemplate = !this.switchTemplate;
             // or
             this.closeTemplate = !this.closeTemplate;
         }, 3000);
         setTimeout(() => {
-            this.switchTemplate = !this.switchTemplate;
+            // this.switchTemplate = !this.switchTemplate;
             // or
             this.closeTemplate = !this.closeTemplate;
         }, 6000);
         setTimeout(() => {
-            this.switchTemplate = !this.switchTemplate;
+            // this.switchTemplate = !this.switchTemplate;
             // or
             this.closeTemplate = !this.closeTemplate;
         }, 9000);
+    }
+
+    get title(): string {
+        // eslint-disable-next-line no-console
+        console.log('Run CD');
+
+        return this.aplicationConfigMock.title;
     }
 }
